@@ -1,0 +1,32 @@
+<h2 class="display-4">Course Information</h2>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formCourse.id">
+  <div class="form-group">
+    <input name="title" #title="ngModel" [(ngModel)]="service.formCourse.title" class="form-control" placeholder="Title"
+      required>
+    <div *ngIf="title.invalid && title.touched" class="validation-error">
+      This field is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <input name="topic" #topic="ngModel" [(ngModel)]="service.formCourse.topic" class="form-control" placeholder="Topic"
+      required>
+    <div *ngIf="topic.invalid && topic.touched" class="validation-error">
+      This field is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <input name="description" #description="ngModel" [(ngModel)]="service.formCourse.description"
+      placeholder="Description" class="form-control">
+  </div>
+  <div class="form-group">
+    <input name="imageLink" #imageLink="ngModel" [(ngModel)]="service.formCourse.imageLink" placeholder="image Link"
+      class="form-control">
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
+      SUBMIT
+    </button>
+  </div>
+</form>
+<ngx-spinner></ngx-spinner>
